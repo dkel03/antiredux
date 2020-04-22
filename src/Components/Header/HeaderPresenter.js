@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Flex, { FlexItem } from "styled-flex-component";
 import FontAwesome from "react-fontawesome";
-import Store from "store"; 
+import Store from "store";
 
 const Header = styled.header`
   height: 100px;
@@ -44,14 +44,13 @@ const Number = styled.span`
   top: -10px;
 `;
 
-const getUnseen = notifications => {
+const getUnseen = (notifications) => {
   let unseen = [];
-  Object.keys(notifications).map(key => {
-    if(!notifications[key].seen)
-      return unseen.push(notifications[key]);
+  Object.keys(notifications).map((key) => {
+    if (!notifications[key].seen) return unseen.push(notifications[key]);
   });
   return unseen.length;
-}
+};
 
 const HeaderPresenter = () => (
   <Header>
@@ -71,7 +70,7 @@ const HeaderPresenter = () => (
             <FontAwesome name="bell" />
             <Number>
               <Store.Consumer>
-                {store => getUnseen(store.notifications)}
+                {(store) => getUnseen(store.notifications)}
               </Store.Consumer>
             </Number>
           </HeaderIcon>

@@ -9,13 +9,13 @@ const AppPresenter = () => (
     <Header />
     <Flex alignCenter full column>
       <Store.Consumer>
-        {store => {
-          return Object.keys(store.notifications).map(key => (
+        {(store) => {
+          return Object.keys(store.notifications).map((key) => (
             <Notification
               key={store.notifications[key].id}
               id={store.notifications[key].id}
               text={store.notifications[key].text}
-              seen={store.notifications[key].seen} 
+              seen={store.notifications[key].seen}
             />
           ));
         }}
